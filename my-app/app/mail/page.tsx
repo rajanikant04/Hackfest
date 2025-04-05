@@ -215,7 +215,7 @@ export default function CategoryPage() {
                       {isLoading ? "Fetching..." : "📩 Refresh Emails"}
                     </button>
                   )}
-                  <div className="space-y-4">
+                  <div className="space-y-4 ">
                     {emails.length === 0 ? (
                       token ? (
                         <p className="text-center text-gray-500">loading...</p>
@@ -237,7 +237,7 @@ export default function CategoryPage() {
                             onClick={() => handleEmailClick(idx)}
                           >
                             {/* Left Section: Sender & Date */}
-                            <div className="flex-1">
+                            <div className="flex-1 ">
                               <p className="font-medium text-white">
                                 📧 {senderName}
                               </p>

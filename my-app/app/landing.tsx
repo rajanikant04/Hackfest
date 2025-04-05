@@ -1,34 +1,42 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Atom, Mail, Star, Zap, MessageSquare } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 function LandingPage() {
   const [imageUrl, setImageUrl] = useState("default.jpg");
+  const [scrolled, setScrolled] = useState(false);
 
   const router = useRouter(); // Initialize router
 
   const handleGetStarted = () => {
     router.push("/sign-in"); // Navigate to sign-in page
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className=" min-h-screen  w-screen bg-gradient-to-br from-purple-950 to-black text-white">
       {/* Navigation */}
-      <nav className="flex justify-between items-center p-6">
+      <nav className={`fixed w-full z-60 translation-all flex justify-between items-center p-6 ${scrolled ? 'bg-black/30 backdrop-blur-lg' : ''}`}>
         <div className="flex items-center space-x-2">
           <img src="flow.png" alt="Logo" className="w-40 h-10 rounded-full" />
         </div>
         <div className="flex items-center space-x-6">
           <a
             href="#features"
-            className="hover:text-purple-400 transition-colors"
-          >
+            className="hover:text-purple-400 transition-colors">
             Features
           </a>
           <button
             onClick={handleGetStarted}
-            className="cursor-pointer text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
-          >
+            className="cursor-pointer text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">
             My Inbox
           </button>
         </div>
@@ -48,8 +56,7 @@ function LandingPage() {
           <div className="flex items-end">
             <h1
               suppressHydrationWarning={true}
-              className="font-black justify-center items-center text-white text-[20px] md:text-[30px] ml-8 lg:text-[40px] xl:text-[50px] mb-12 md:mb-15 lg:mb-20 "
-            >
+              className="font-black justify-center items-center text-white text-[20px] md:text-[30px] ml-8 lg:text-[40px] xl:text-[50px] mb-12 md:mb-15 lg:mb-20 ">
               Revolutionize your Inbox
               <p suppressHydrationWarning={true}>
                 with{" "}
@@ -67,8 +74,7 @@ function LandingPage() {
         </p>
         <button
           onClick={handleGetStarted}
-          className="bg-white cursor-pointer text-blue-400 px-12 py-4 rounded-4xl text-lg font-semibold transition-all duration-300 hover:shadow-[0_6px_15px_rgba(255,255,255,0.7)]"
-        >
+          className="bg-white cursor-pointer text-blue-400 px-12 py-4 rounded-4xl text-lg font-semibold transition-all duration-300 hover:shadow-[0_6px_15px_rgba(255,255,255,0.7)]">
           Get Started for Free
         </button>
 
@@ -109,20 +115,17 @@ function LandingPage() {
           <div className="flex flex-col gap-4 justify-centerc">
             <button
               className="btn hover:scale-110 flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-purple-700 to-black rounded-lg hover:bg-gray-700 transition-all font-bold"
-              onMouseOver={() => setImageUrl("mountain.jpg")}
-            >
+              onMouseOver={() => setImageUrl("mountain.jpg")}>
               📦 Multiple Domains & Accounts
             </button>
             <button
               className="btn flex hover:scale-110 items-center gap-2 px-8 py-4 bg-gradient-to-br from-purple-800 to-black rounded-lg hover:bg-gray-700 transition-all font-bold"
-              onMouseOver={() => setImageUrl("build.jpg")}
-            >
+              onMouseOver={() => setImageUrl("build.jpg")}>
               🌍 AI Powered Automatic Drafting
             </button>
             <button
               className="btn flex hover:scale-110 items-center gap-2 px-8 py-4 bg-gradient-to-br from-purple-900 to-black rounded-lg hover:bg-gray-700 transition-all font-bold"
-              onMouseOver={() => setImageUrl("building.jpg")}
-            >
+              onMouseOver={() => setImageUrl("building.jpg")}>
               💻 Compatible with all Apps
             </button>
           </div>
@@ -172,8 +175,7 @@ function LandingPage() {
           </h2>
           <button
             onClick={handleGetStarted}
-            className="bg-white hover:scale-120 text-purple-900 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition-colors"
-          >
+            className="bg-white hover:scale-120 text-purple-900 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
             Start Now
           </button>
         </div>
@@ -244,8 +246,7 @@ function LandingPage() {
                   📧 Mail Us:{" "}
                   <a
                     href="mailto:mishralucky074@gmail.com"
-                    className="text-purple-600"
-                  >
+                    className="text-purple-600">
                     mishralucky074@gmail.com
                   </a>
                 </li>

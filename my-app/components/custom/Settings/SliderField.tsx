@@ -8,12 +8,15 @@ function SliderField({ label, type = 'px', value, onHandleStyleChange }) {
 
   return (
     <div>
-      <label>{label} ({value})</label>
-      <Slider 
-        defaultValue={[FormattedValue(value)]} 
-        max={100} 
-        step={1} 
-        onValueChange={(v) => onHandleStyleChange(v+ type)} 
+      <label>
+        {label} ({value})
+      </label>
+      <Slider
+        defaultValue={[FormattedValue(value)]}
+        max={100}
+        step={1}
+        onValueChange={(v) => onHandleStyleChange(v + type)}
+        className="bg-white rounded-md h-2 w-full"
       />
     </div>
   );

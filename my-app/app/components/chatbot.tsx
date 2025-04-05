@@ -248,10 +248,9 @@ const ChatBot = () => {
 
   return (
     <div
-      className={`r-0 pr-6 pl-6 pt-2 dark:bg-gray-900 dark:text-white rounded-sm w-full h-screen ${
+      className={`r-0 pr-6 pl-6 border-2 border-[#76777b] pt-2 dark:bg-[#212730] dark:text-white rounded-sm w-full h-screen ${
         isQuickComposeOpen || isComposeOpen ? "hidden" : ""
-      }`}
-    >
+      }`}>
       <h1 className="text-2xl  flex items-center text-center ml-20 font-bold mb-4">
         AI Email Assistant
       </h1>
@@ -263,9 +262,8 @@ const ChatBot = () => {
           id="hs-floating-input-email"
           value={recipient}
           onChange={(e) => setRecipient(e.target.value)}
-          placeholder=" "
-          className="peer p-2 block w-full border border-gray-900 dark:border-neutral-700 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:text-neutral-400 dark:focus:ring-neutral-600
-    focus:pt-6 focus:pb-2 "
+          className=" p-2 block w-full border-2 border-gray-900 dark:border-[#76777b] rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:text-neutral-400 dark:focus:ring-neutral-600
+    focus:pt-4 focus:pb-4 "
         />
       </div>
       {emails.length > 0 ? (
@@ -281,15 +279,13 @@ const ChatBot = () => {
         </h3>
 
         <ul
-          className={`overflow-y-auto overflow-x-hidden border p-3 rounded-lg shadow-md w-full
-  ${emails.length > 0 ? "max-h-[200px] min-h-[140px]" : "max-h-[100px]"}`}
-        >
+          className={`overflow-y-auto overflow-x-hidden border-2 border-[#76777b] p-3 rounded-lg shadow-md w-full
+  ${emails.length > 0 ? "max-h-[200px] min-h-[140px]" : "max-h-[100px]"}`}>
           {emails.length > 0 ? (
             emails.map((email) => (
               <li
                 key={email.id}
-                className="border-b py-3 last:border-b-0 w-full flex flex-col gap-1"
-              >
+                className="border-b py-3 last:border-b-0 w-full flex flex-col gap-1">
                 <strong className="text-lg text-blue-600 block w-full overflow-hidden text-ellipsis">
                   {email.subject}
                 </strong>
@@ -319,7 +315,7 @@ const ChatBot = () => {
         ref={textareaRef}
         className="w-full border p-3 mb-4 rounded-xl shadow-md
     resize-none bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200
-    border-gray-300 dark:border-gray-600 focus:outline-none 
+    border-gray-300 dark:border-[#76777b] border-2  focus:outline-none 
     focus:ring-2 focus:ring-blue-500 transition-all duration-200 max-h-[180px] overflow-y-auto"
         placeholder={isAskAI ? "Ask AI about these emails..." : "Your reply..."}
         value={query}
@@ -327,18 +323,16 @@ const ChatBot = () => {
       />
       <div className="flex items-center space-x-2">
         <button
-          className="bg-gradient-to-br from-green-400 to-blue-600 text-white px-4 py-2 rounded"
-          onClick={isAskAI ? handleQuery : sendReply}
-        >
+          className="bg-gradient-to-r from-[#00BFFF] to-[#00FFA3] text-white font-semibold py-2 px-4 rounded-lg  hover:scale-105 transition-transform"
+          onClick={isAskAI ? handleQuery : sendReply}>
           {isAskAI ? "Ask AI" : "Reply"}
         </button>
 
         {!isAskAI && (
           <button
-            className="bg-gradient-to-br from-purple-400 to-indigo-600 text-white px-4 py-2 rounded flex items-center"
+            className="bg-gradient-to-br from-purple-400 to-indigo-600 text-white px-4 py-2 rounded-lg flex items-center hover:scale-105"
             onClick={refineText}
-            disabled={isRefining || !query.trim()}
-          >
+            disabled={isRefining || !query.trim()}>
             {isRefining ? (
               <span className="flex items-center">Refining...</span>
             ) : (

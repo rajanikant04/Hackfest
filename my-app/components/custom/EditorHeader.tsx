@@ -378,16 +378,16 @@ function EditorHeader({ viewHTMLCode }: { viewHTMLCode: () => void }) {
   }, [htmlContent, setPreviewHTML]);
 
   return (
-    <div className="p-4 shadow-sm flex justify-between items-center">
+    <div className="p-4 shadow-sm flex justify-between items-center dark:bg-gray-800 border-b-1 border-white">
       <div className="w-1/3"></div>
       <div className="flex gap-3 w-1/3">
         <Button
           variant="ghost"
           onClick={() => setScreenSize("desktop")}
           className={`${
-            screenSize == "desktop" && "bg-purple-100 text-primary"
-          }`}
-        >
+            screenSize == "desktop" &&
+            "bg-gray-600 text-primary border-2 border-white"
+          }`}>
           <Monitor />
           Desktop
         </Button>
@@ -395,9 +395,9 @@ function EditorHeader({ viewHTMLCode }: { viewHTMLCode: () => void }) {
           variant="ghost"
           onClick={() => setScreenSize("mobile")}
           className={`${
-            screenSize == "mobile" && "bg-purple-100 text-primary"
-          }`}
-        >
+            screenSize == "mobile" &&
+            "bg-gray-600 text-primary border-2 border-white"
+          }`}>
           <Smartphone />
           Mobile
         </Button>
@@ -411,7 +411,7 @@ function EditorHeader({ viewHTMLCode }: { viewHTMLCode: () => void }) {
           <Code />
         </Button>
 
-        <Button onClick={handleSendEmail} variant="outline">
+        <Button onClick={handleSendEmail} variant="outline" className="dark:hover:border-2 dark:hover:border-white ">
           Send Test Email
         </Button>
       </div>

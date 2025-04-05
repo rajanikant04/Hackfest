@@ -144,7 +144,7 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <div className="h-screen bg-gray-900 text-white flex flex-col items-start p-4">
+    <div className="h-screen bg-gray-900 text-white flex flex-col items-start px-4 pt-19">
       <ul className="mt-6 space-y-6 w-full">
         {menuItems.map(({ icon: Icon, label, path }) => (
           <li

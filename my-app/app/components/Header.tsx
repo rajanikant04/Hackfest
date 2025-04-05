@@ -335,9 +335,9 @@ export default function Header() {
         <div className="fixed inset-0 flex justify-center items-center z-50 bg-black/40 backdrop-blur-sm">
           <div
             ref={fullComposeRef}
-            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-300 border border-gray-200 dark:border-gray-700"
           >
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center ">
               <div className="flex items-center">
                 <div className="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-3">
                   <Mail

@@ -184,9 +184,10 @@ export default function CategoryPage() {
   return (
     <>
       <div className="h-screen flex w-full overflow-hidden">
-        <div className="w-[13.4%] ">
+        <div className="w-[13.4%] border-r-2 border-white">
           <Sidebar />
         </div>
+
         <div className="h-full w-[88%]  flex flex-col ">
           <div className="h-[10%]">
             <Header />
@@ -206,8 +207,7 @@ export default function CategoryPage() {
                       disabled={isLoading}
                       className={`bg-gradient-to-br from-green-400 to-blue-600 text-white px-4 py-2 rounded w-full mb-4 transition ${
                         isComposeOpen || isQuickComposeOpen ? "opacity-30" : ""
-                      } disabled:opacity-50`}
-                    >
+                      } disabled:opacity-50`}>
                       {isLoading ? "Fetching..." : "📩 Refresh Emails"}
                     </button>
                   )}
@@ -229,9 +229,8 @@ export default function CategoryPage() {
                         return (
                           <div
                             key={idx}
-                            className="overflow-y-auto group border p-4 rounded-lg shadow-2xl  bg-gray-800 hover:shadow-lg transition-all duration-300 cursor-pointer flex justify-between items-center gap-x-4 transform hover:scale-[1.06]"
-                            onClick={() => handleEmailClick(idx)}
-                          >
+                            className="overflow-y-auto group border p-4 rounded-lg shadow-2xl  bg-gray-800 hover:shadow-lg transition-all duration-300 cursor-pointer flex justify-between items-center gap-x-4 transform hover:scale-[1.06] hover:bg-gray-700"
+                            onClick={() => handleEmailClick(idx)}>
                             {/* Left Section: Sender & Date */}
                             <div className="flex-1">
                               <p className="font-medium text-white">
@@ -241,7 +240,7 @@ export default function CategoryPage() {
                                 {email.date}
                               </p>
                               {/* Always show snippet in the list view, never full content */}
-                              <p className="text-gray-600 mt-2">
+                              <p className="text-gray-500 mt-2 hover:text-gray-200">
                                 {getTextPreview(email)}...
                               </p>
                             </div>
@@ -257,8 +256,7 @@ export default function CategoryPage() {
                                   token
                                 );
                               }}
-                              className="opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 ml-4"
-                            >
+                              className="opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 ml-4">
                               🗑️
                             </button>
                           </div>
@@ -280,8 +278,7 @@ export default function CategoryPage() {
             {selectedEmail && (
               <div
                 className={getModalContentClasses()}
-                onClick={(e) => e.stopPropagation()}
-              >
+                onClick={(e) => e.stopPropagation()}>
                 {/* Header section with improved styling */}
                 <div className="p-6 border-b border-gray-200 dark:border-gray-700 relative">
                   <div className="flex justify-between items-center">
@@ -295,15 +292,13 @@ export default function CategoryPage() {
                     <button
                       onClick={closeFullContentModal}
                       className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      aria-label="Close"
-                    >
+                      aria-label="Close">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
+                        stroke="currentColor">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"

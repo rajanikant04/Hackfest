@@ -258,7 +258,7 @@ function Editor() {
           <Header />
         </div>
 
-        <div className="overflow-y-auto">
+        <div className="overflow-y-auto dark:bg-gray-800">
           {/* Pass the handleViewHTMLCode function to EditorHeader */}
           <EditorHeader viewHTMLCode={handleViewHTMLCode} />
 
@@ -269,14 +269,14 @@ function Editor() {
               placeholder="Recipient Email"
               value={recipient}
               onChange={(e) => setRecipient(e.target.value)}
-              className="border p-2 rounded w-full mb-2"
+              className=" p-2 border-1 border-white rounded w-full mb-2 dark:bg-gray-700"
             />
             <input
               type="text"
               placeholder="Subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="border p-2 rounded w-full mb-2"
+              className="border-1 border-white p-2 rounded w-full mb-2 dark:bg-gray-700"
             />
           </div>
 

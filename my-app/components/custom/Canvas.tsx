@@ -62,18 +62,19 @@ const Canvas = forwardRef(
     };
 
     return (
-      <div className="mt-20 flex flex-col items-center">
+      <div className="mt-20 flex flex-col items-center ">
         <div
           className={`bg-white p-6 w-full ${
             screenSize === "desktop" ? "max-w-2xl" : "max-w-md"
           } ${dragOver ? "bg-purple-100 p-8" : ""}`}
           onDragOver={onDragOver}
           onDrop={onDropHandle}
-          ref={htmlRef}
-        >
+          ref={htmlRef}>
           {Array.isArray(emailTemplate) && emailTemplate.length > 0 ? (
             emailTemplate.map((layout, index) => (
-              <div key={index}>{getLayoutComponent(layout)}</div>
+              <div  key={index} >
+                {getLayoutComponent(layout)}
+              </div>
             ))
           ) : (
             <h2 className="p-4 text-center bg-gray-100 border border-dashed">

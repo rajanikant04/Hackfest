@@ -54,10 +54,10 @@ function AIInputBox() {
         onChange={(e) => setUserInput(e.target.value)}
       />
       <Button
-        className="w-full mt-7"
+        className="w-full mt-7 from-green-400 to-blue-600 hover:bg-gradient-to-bl hover:scale-105 hover:text-white transition-all duration-300 ease-in-out
+"
         disabled={userInput.trim().length === 0 || loading}
-        onClick={OnGenerate}
-      >
+        onClick={OnGenerate}>
         {loading ? (
           <span className="flex gap-2">
             <Loader2 className="animate-spin" /> Please Wait...
@@ -69,5 +69,4 @@ function AIInputBox() {
     </div>
   );
 }
-
 export default AIInputBox;
