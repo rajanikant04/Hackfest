@@ -843,7 +843,10 @@ function Settings() {
       {element?.style?.textAlign && 
         <ToggleGroupField label={'Text Align'} value={element?.style?.textAlign}
         options={TextAlignOptions}
-        onHandleStyleChange={(value)=> onHandleStyleChange('textAlign', value)} />}
+        onHandleStyleChange={(value)=> {
+          if (value === "") return;
+          onHandleStyleChange('textAlign', value);
+          }} />}
 
       {element?.style?.backgroundColor && (
         <ColorPickerField
@@ -903,7 +906,10 @@ function Settings() {
             value={element?.outerStyle?.justifyContent}
             options={TextAlignOptions}
             onHandleStyleChange={(value) =>
-              onHandleOuterStyleChange('justifyContent', value)
+              {
+                if (value === "") return;
+                onHandleOuterStyleChange('justifyContent', value);
+                }
             }
           />
         }
