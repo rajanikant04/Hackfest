@@ -29,7 +29,7 @@ import { ChevronsUpDown, Check, X, Send, Edit3, Mail } from "lucide-react";
 import { useCompose } from "@/context/ComposeContext";
 
 const options = [
-  { value: "create", label: "Create" },
+  { value: "create ", label: "Create Template" },
   { value: "compose", label: "Compose" },
   { value: "compose-with-ai", label: "Compose with AI" },
 ];
@@ -167,7 +167,7 @@ export default function Header() {
                   >
                     {value
                       ? options.find((option) => option.value === value)?.label
-                      : "Email Actions"}
+                      : "Smart Compose"}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-80" />
                   </Button>
                 </PopoverTrigger>

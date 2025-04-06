@@ -251,16 +251,23 @@ const ChatBot = () => {
       className={`r-0 pr-6 pl-6 border-2 border-[#76777b] pt-2 dark:bg-[#212730] dark:text-white rounded-sm w-full h-screen ${
         isQuickComposeOpen || isComposeOpen ? "hidden" : ""
       }`}>
-      <h1 className="text-2xl  flex items-center text-center ml-20 font-bold mb-4">
-        AI Email Assistant
-      </h1>
+      <div className="flex items-center gap-3 justify-center mb-4">
+        <img
+          src="/bot.webp" // Make sure the path is correct
+          alt="AI Logo"
+          className="w-12 h-12 object-contain rounded-lg"
+        />
+        <h1 className="text-2xl font-bold">AI Email Assistant</h1>
+      </div>
+
       {/* <img src="chat1.png" alt="" className="w-20 h-20" /> */}
 
       <div className="relative w-full">
-        <h2 className="text-xl font-semibold mb-2">Looking For:</h2>
+        <h2 className="text-xl font-semibold mb-2">Quick search:</h2>
         <input
           id="hs-floating-input-email"
           value={recipient}
+          placeholder="e.g., Uber, GitHub"
           onChange={(e) => setRecipient(e.target.value)}
           className=" p-2 block w-full border-2 border-gray-900 dark:border-[#76777b] rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:text-neutral-400 dark:focus:ring-neutral-600
     focus:pt-4 focus:pb-4 "
@@ -275,7 +282,7 @@ const ChatBot = () => {
       )}
       <div className="mb-6 ">
         <h3 className="text-xl font-semibold mt-2 mb-2">
-          Emails from {recipient}:
+          Viewing messages from: {recipient}
         </h3>
 
         <ul

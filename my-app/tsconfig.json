@@ -43,6 +43,6 @@
     "context/UserDetailContext.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "public/node_modules"
   ]
 }

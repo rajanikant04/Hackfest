@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Atom, Mail, Star, Zap, MessageSquare } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 function LandingPage() {
   const [imageUrl, setImageUrl] = useState("default.jpg");
@@ -24,16 +25,12 @@ function LandingPage() {
   return (
     <div className=" min-h-screen  w-screen bg-gradient-to-br from-purple-950 to-black text-white">
       {/* Navigation */}
-      <nav className={`fixed w-full z-60 translation-all flex justify-between items-center p-6 ${scrolled ? 'bg-black/30 backdrop-blur-lg' : ''}`}>
+      <nav
+        className={`fixed w-full z-60 translation-all flex justify-between items-center p-6 ${scrolled ? "bg-black/30 backdrop-blur-lg" : ""}`}>
         <div className="flex items-center space-x-2">
           <img src="flow.png" alt="Logo" className="w-40 h-10 rounded-full" />
         </div>
         <div className="flex items-center space-x-6">
-          <a
-            href="#features"
-            className="hover:text-purple-400 transition-colors">
-            Features
-          </a>
           <button
             onClick={handleGetStarted}
             className="cursor-pointer text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">
@@ -46,11 +43,12 @@ function LandingPage() {
       <div className="max-w-6xl mx-auto px-6 py-20 text-center ">
         <div className="flex text-start rounded-xl relative xl:max-w-[1094px] justify-center items-start mx-auto  ">
           <div className="flex items-start">
-            <img
+            <motion.img
               src="logo.webp"
-              className="inline-block rounded-md md:rounded-xl wow animate__animated animate__fadeInUp"
-              data-wow-delay=".1s"
               alt="logo"
+              className="inline-block rounded-md md:rounded-xl"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
           <div className="flex items-end">
@@ -74,7 +72,7 @@ function LandingPage() {
         </p>
         <button
           onClick={handleGetStarted}
-          className="bg-white cursor-pointer text-blue-400 px-12 py-4 rounded-4xl text-lg font-semibold transition-all duration-300 hover:shadow-[0_6px_15px_rgba(255,255,255,0.7)]">
+          className="bg-white cursor-pointer text-blue-400 px-12 py-4 rounded-4xl text-xl font-semibold transition-all duration-300 hover:shadow-[0_6px_15px_rgba(255,255,255,0.7)]">
           Get Started for Free
         </button>
 
@@ -82,7 +80,7 @@ function LandingPage() {
         <div className="mt-16 relative">
           <div className="bg-gradient-to-t from-gray-900 to-transparent absolute inset-0 z-10"></div>
           <img
-            src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+            src="mainlading.png"
             alt="Dashboard Preview"
             className="rounded-2xl shadow-2xl border-white border-16 "
           />
@@ -115,18 +113,18 @@ function LandingPage() {
           <div className="flex flex-col gap-4 justify-centerc">
             <button
               className="btn hover:scale-110 flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-purple-700 to-black rounded-lg hover:bg-gray-700 transition-all font-bold"
-              onMouseOver={() => setImageUrl("mountain.jpg")}>
-              📦 Multiple Domains & Accounts
+              onMouseOver={() => setImageUrl("chatbotFrame.png")}>
+              🤖 Integrated AI Chatbot
             </button>
             <button
               className="btn flex hover:scale-110 items-center gap-2 px-8 py-4 bg-gradient-to-br from-purple-800 to-black rounded-lg hover:bg-gray-700 transition-all font-bold"
-              onMouseOver={() => setImageUrl("build.jpg")}>
-              🌍 AI Powered Automatic Drafting
+              onMouseOver={() => setImageUrl("composeAi.png")}>
+              📝 Smart Compose with AI Refinement
             </button>
             <button
               className="btn flex hover:scale-110 items-center gap-2 px-8 py-4 bg-gradient-to-br from-purple-900 to-black rounded-lg hover:bg-gray-700 transition-all font-bold"
-              onMouseOver={() => setImageUrl("building.jpg")}>
-              💻 Compatible with all Apps
+              onMouseOver={() => setImageUrl("templating.png")}>
+              📄 Custom User Prompt Templates
             </button>
           </div>
         </div>
@@ -144,19 +142,19 @@ function LandingPage() {
               <span className="bg-purple-500 text-white rounded-full p-2">
                 ✔️
               </span>
-              <p className="ml-2 font-medium">White Label Solution Available</p>
+              <p className="ml-2 font-medium">Smart Inbox Filtering</p>
             </div>
             <div className="flex items-center bg-white text-black rounded-full px-6 py-3">
               <span className="bg-purple-500 text-white rounded-full p-2">
                 ✔️
               </span>
-              <p className="ml-2 font-medium">100 MB + of Attachment Size</p>
+              <p className="ml-2 font-medium">AI-Based Response Suggestions</p>
             </div>
             <div className="flex items-center bg-white text-black rounded-full px-6 py-3">
               <span className="bg-purple-500 text-white rounded-full p-2">
                 ✔️
               </span>
-              <p className="ml-2 font-medium">Email Migration Available</p>
+              <p className="ml-2 font-medium">Lightning-Fast Delivery</p>
             </div>
           </div>
 
@@ -205,30 +203,6 @@ function LandingPage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-3 text-2xl text-black">Company</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>
-                  <a href="#">About Us</a>
-                </li>
-                <li>
-                  <a href="#">Blogs</a>
-                </li>
-                <li>
-                  <a href="#">Careers</a>
-                </li>
-                <li>
-                  <a href="#">Contact Us</a>
-                </li>
-
-                <li>
-                  <a href="#">FAQs</a>
-                </li>
-                <li>
-                  <a href="#">Download Apps</a>
-                </li>
-              </ul>
-            </div>
-            <div>
               <h3 className="font-bold mb-3 text-2xl text-black">Contact Us</h3>
               <ul className="space-y-2 text-gray-600">
                 <li>
@@ -238,16 +212,14 @@ function LandingPage() {
                   </span>
                 </li>
                 <li>
-                  📍 Address: 1202, Gera Imperium Rise,
-                  <br />
-                  Hinjewadi Phase 2, Pune - 411057
+                  📍 Address: NIT Rourkela
                 </li>
                 <li>
                   📧 Mail Us:{" "}
                   <a
                     href="mailto:mishralucky074@gmail.com"
                     className="text-purple-600">
-                    mishralucky074@gmail.com
+                    Gmail.com
                   </a>
                 </li>
               </ul>
