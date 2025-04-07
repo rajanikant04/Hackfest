@@ -544,7 +544,8 @@ app.get("/oauth-callback", async (req, res) => {
     // console.log("Received Tokens:", tokens);
 
     res.redirect(
-      `http://localhost:3000/category/inbox || ""}`
+      // `http://localhost:3000/category/inbox || ""}`
+      `http://localhost:3000/mail?token=${tokens.access_token || ""}`
     );
   } catch (error) {
     console.error("OAuth Callback Error:", error);
